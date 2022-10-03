@@ -5,7 +5,7 @@ function Form({ addContact, contacts }) {
 
     //inputlara veri girilmesi
 
-    const [form, setForm] = useState({ fulllname: "", phone_number: "" });
+    const [form, setForm] = useState({ fullname: "", phone_number: "" });
 
 
     const onChangeInput = (e) => {
@@ -19,7 +19,7 @@ function Form({ addContact, contacts }) {
     const onSubmit = (e) => {
         e.preventDefault() //sayfa yenilenmemesi için
 
-        if (form.fulllname === "" || form.phone_number === "") {
+        if (form.fullname === "" || form.phone_number === "") {
             return false;
         }
         //array içine obje yerleştir, eski verileri koru
@@ -29,8 +29,8 @@ function Form({ addContact, contacts }) {
 
     //contacts değişmişse
     useEffect(() => {
-        //temizle
-        setForm({ fulllname: "", phone_number: "" })
+        //inputun içini temizle
+        setForm({ fullname: "", phone_number: "" })
     }, [contacts])
 
 
@@ -42,8 +42,8 @@ function Form({ addContact, contacts }) {
 
                 {/* bu inputlara veri girildiğinde state'imize yazmalıyız */}
                 <input
-                    name='fulllname'
-                    value={form.fulllname}
+                    name='fullname'
+                    value={form.fullname}
                     placeholder='Full Name'
                     onChange={onChangeInput} />  {/* onChange event,onChange propları */}
 

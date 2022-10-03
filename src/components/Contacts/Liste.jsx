@@ -1,9 +1,17 @@
 import React from 'react'
 
-function Liste() {
+function Liste(props) {
+  const contacts = props.contacts;
+
+  const contactsItem = contacts.map((contact,i) =>
+    <li key={i}>
+      {contact.fullname}
+    </li>
+  );
+
   return (
     <div>
-      Liste
+      <ul>{contactsItem}</ul>
     </div>
   )
 }

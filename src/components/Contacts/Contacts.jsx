@@ -16,8 +16,10 @@ function Contacts() {
 
     return (
         <div>
-            Contacts
-            <Liste />
+            {/*kayıtları props gönder */}
+            <Liste 
+            contacts={contacts}
+            />
 
 
             {/* props gönder */}

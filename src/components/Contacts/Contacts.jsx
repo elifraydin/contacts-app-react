@@ -6,12 +6,15 @@ function Contacts() {
 
 
     //kayıtlarımı tutacağım dizi
-    const [contacts, setContacts] = useState([])
+    const [contacts, setContacts] = useState([{ fullname: "Ahmet", phone_number: "123456789" },
+    { fullname: "Cem", phone_number: "14124512" },
+    { fullname: "Selin", phone_number: "43262346" },
+    { fullname: "Onur", phone_number: "2141245" },])
 
     //console'da kişiler array'imize bakalım
-    useEffect(() => {
-        console.log(contacts);
-    }, [contacts])
+    // useEffect(() => {
+    //     console.log(contacts);
+    // }, [contacts])
 
 
     return (

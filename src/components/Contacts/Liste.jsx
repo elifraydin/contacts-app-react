@@ -1,17 +1,42 @@
-import React from 'react'
+import { useState } from 'react' //inputa veri girildiği anda state'e yazmak gerekiyor
 
-function Liste(props) {
-  const contacts = props.contacts;
+function Liste({ contacts }) {
 
-  const contactsItem = contacts.map((contact,i) =>
-    <li key={i}>
-      {contact.fullname}
-    </li>
-  );
+  //filtreleme
+  const [filterText, setFilterText] = useState("");
+
+  //filter adında array metodu var
+  //bu objeyi key'lerine ayır
+  //some -> fullname veya phone_number herhangi birinde eğer
+  //includes -> bu ifade geçiyorsa return
+  const filtered = contacts.filter((item) => {
+    return Object.keys(item).some((key) =>
+      item[key]
+        .toString()
+        .toLowerCase()
+        .includes(filterText.toLocaleLowerCase())
+    );
+  });
+
+  // console.log("filtered", filtered)
+
 
   return (
     <div>
-      <ul>{contactsItem}</ul>
+
+      <input
+        placeholder='Filter Contact'
+        value={filterText}
+        onChange={(e) => setFilterText(e.target.value)}
+      />{/* input değiştiği anda --> onChange */}
+
+
+      <ul>
+        {filtered.map((contact, i) => (
+          <li key={i}>{contact.fullname}</li>
+        ))}
+      </ul>
+
     </div>
   )
 }
